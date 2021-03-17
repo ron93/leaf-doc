@@ -16,12 +16,17 @@ main = Blueprint('main', __name__)
 ALLOWED_EXTENSIONS = set(['jpg', 'jpeg', 'png'])
 IMAGE_SIZE = (224, 224)
 UPLOAD_FOLDER = 'uploads'  
+
 with open('ml_models/model.pkl', 'rb') as file:
     pickle.load(file)
 file.close()
 
-model = load_model('ml_model/model.pkl')
-#model   = joblib.load('pickle_model.pkl')
+# allowed pic extensions
+def allowe_files(filename):
+    return '-' in filename and filename.split('.',1)[1] in ALLOWED_EXTENSIONS
+
+app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
+
 
 @main.route('/', methods=['GET','POST'])
 def home():
@@ -29,6 +34,7 @@ def home():
 
 @main.route('/upload', methods=['GET','POST'])
 def upload():
+    
     return "upload"
 
 @main.route('/analyze' ,methods=['GET','POST'])
