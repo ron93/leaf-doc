@@ -6,8 +6,8 @@ name = "pypi"
 [packages]
 flask = "*"
 flask-sqlalchemy = "*"
-keras = "*"
 tensorflow = "*"
+keras = "*"
 
 [dev-packages]
 
