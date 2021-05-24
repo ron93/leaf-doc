@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 import os
@@ -16,4 +17,4 @@ def create_app():
     from .views import main
     app.register_blueprint(main)
     return app
-    
+  
